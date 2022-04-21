@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block content %}
+  
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Welcome to Simple House</h2>
+				<p class="col-12 text-center">Total 3 HTML</p>
+			</header>
+			
+			<!-- Gallery -->
+			<div class="row tm-gallery">
+				<!-- gallery page 1 -->
+				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						{% for item in work %}
+						<figure>
+							<img src="{{item.image1.url}}" alt="Image" class="img-fluid tm-gallery-img" style="width: 200;height: 100;"/>
+							<figcaption>
+								<a href="{% url 'detail' item.slug %}">
+								<h4 class="tm-gallery-title">{{item.title}}</h4>
+								<p class="tm-gallery-description">{{item.body}}</p>
+								</a>
+							</figcaption>
+						</figure>
+						{% endfor %}
+					</article>
+				</div>
+			</div>
+		</main>
+
+{% endblock content %}

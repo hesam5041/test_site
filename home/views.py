@@ -20,7 +20,7 @@ def contact(request):
 
 def detail(request, slug):
     post = get_object_or_404(Work_Samples , slug=slug ,status=True)
-    context={
-        'posts':post
-        }
-    return render(request,context,'all/posts.html')
+    context = {
+        'post':post
+    }
+    return render(request,'all/posts.html')
